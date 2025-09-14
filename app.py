@@ -52,3 +52,35 @@ def sacar():
             numero_saques += 1
             print(f"✅ Saque de R$ {valor:.2f} realizado com sucesso!\n")
     except ValueError:
+        print("⚠️ Entrada inválida. Digite um número.\n")
+
+def mostrar_extrato():
+    print("\n📄 === EXTRATO ===")
+    if not extrato:
+        print("Nenhuma movimentação registrada.")
+    else:
+        print(extrato.strip())
+    print(f"\n💼 Saldo atual: R$ {saldo:.2f}")
+    print("====================\n")
+
+def main():
+    mostrar_data()
+    
+    while True:
+        menu()
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            depositar()
+        elif opcao == "2":
+            sacar()
+        elif opcao == "3":
+            mostrar_extrato()
+        elif opcao == "0":
+            print("👋 Saindo do sistema. Obrigado por usar o Banco Python!")
+            break
+        else:
+            print("❌ Opção inválida. Tente novamente.\n")
+
+if __name__ == "__main__":
+    main()
